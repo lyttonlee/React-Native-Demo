@@ -1,0 +1,3 @@
+export const INIT_NUMBER = 'INIT_UNMBER'
+export const INCREAMENT = 'INCREMENT'
+export const GET_MOVIE_LIST = 'GET_MOVIE_LIST'

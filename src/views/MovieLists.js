@@ -55,10 +55,10 @@ export class MovieLists extends Component {
       return (
         <View style={styles.container}>
           <Text style={styles.pageTitle}> 豆瓣电影Top 10 </Text>
-          <View>
+          <View style={styles.list}>
             <FlatList
               data = {this.props.list}
-              renderItem = {({item}) => <MovieItem item= {item} />}
+              renderItem = {({item}) => <MovieItem movie= {item} />}
               keyExtractor = {(item) => item.id}
             />
           </View>
@@ -72,11 +72,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 60,
-    marginBottom: 40
+    marginTop: 20,
+    marginBottom: 20
   },
   pageTitle: {
     fontSize: 30,
+    // backgroundColor: 'red'
+  },
+  list: {
+    backgroundColor: '#fefefe'
   }
 })
 

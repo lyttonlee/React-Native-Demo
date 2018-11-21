@@ -12,15 +12,7 @@ import {
 export class Props extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTitle: navigation.state.routeName,
-      headerRight: (
-        <Button
-          onPress={() => Alert.alert('routeInfo' ,JSON.stringify(navigation))}
-          // onPress={() => navigation.goBack()}
-          title={navigation.state.routeName}
-          color="#111"
-        />
-      )
+      headerTitle: navigation.state.routeName
     }
   }
   state={
@@ -58,7 +50,7 @@ export class Props extends Component {
     const {width} = Dimensions.get('window')
     return (
       <View style={styles.container}>
-        <Text style={styles.title}> Props Test </Text>
+        <Text style={styles.title}> Input </Text>
         <View style={{width: width * 0.9, height: 50}}>
           <TextInput 
             style={styles.input}
@@ -66,7 +58,7 @@ export class Props extends Component {
             onChangeText={text => this.inputChange(text)}
             keyboardType={"numeric"}
             // textContentType={'creditCardNumber'}
-            // clearTextOnFocus={true}
+            clearTextOnFocus={true}
           />
         </View>
         <Button 

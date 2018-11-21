@@ -12,54 +12,31 @@ import {
 export class list extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTitle: navigation.state.routeName,
-      headerRight: (
-        <Button
-          onPress={() => Alert.alert('routeInfo' ,JSON.stringify(navigation))}
-          // onPress={() => navigation.goBack()}
-          title={navigation.state.routeName}
-          color="#111"
-        />
-      )
+      headerTitle: navigation.state.routeName
     }
   }
+  render_item (title, pathName) {
+    const {width} = Dimensions.get('window')
+    return (
+      <View style={[styles.item, {width: width * 0.9}]}>
+        <Button
+          style={styles.btn}
+          title={title}
+          onPress={() => this.props.navigation.navigate(pathName)}
+          color="#841584"
+        />
+      </View>
+    )
+  }
   render() {
-    const {height, width} = Dimensions.get('window')
     return (
       <View style={styles.container}>
         {/* <Text> List Component </Text> */}
-        <View style={[styles.item, {width: width * 0.9}]}>
-          <TouchableHighlight>
-            <Button
-              title='Home Page' 
-              onPress={() => this.props.navigation.navigate('Home')} color="#841584"
-            />
-          </TouchableHighlight>
-        </View>
-        <View style={[styles.item, {width: width * 0.9}]}>
-          <Button
-            style={styles.btn}
-            title='TouchAble Page'
-            onPress={() => this.props.navigation.navigate('TouchAble')}
-            color="#841584"
-          />
-        </View>
-        <View style={[styles.item, {width: width * 0.9}]}>
-          <Button
-            style={styles.btn}
-            title='props page'
-            onPress={() => this.props.navigation.navigate('Props')}
-            color="#841584"
-          />
-        </View>
-        <View style={[styles.item, {width: width * 0.9}]}>
-          <Button
-            style={styles.btn}
-            title='movie list page'
-            onPress={() => this.props.navigation.navigate('MovieLists')}
-            color="#841584"
-          />
-        </View>
+        {this.render_item('home page', 'Home')}
+        {this.render_item('TouchAble page', 'TouchAble')}
+        {this.render_item('Props page', 'Props')}
+        {this.render_item('MovieLists page', 'MovieLists')}
+        {this.render_item('tab page', 'Tab')}
       </View>
     )
   }

@@ -8,16 +8,18 @@ export class MovieItem extends Component {
   }
   render() {
     const {width} = Dimensions.get('window')
-    const {item} = this.props
+    const {movie} = this.props
     return (
       <TouchableOpacity activeOpacity={0.7}>
         <View style={[styles.container, {width: width}]}>
           <Image
             style={styles.image}
-            source={{uri: item.images.small}}
+            source={{uri: movie.images.small}}
           />
-          <Text style={styles.text}>{item.title}</Text>
-          <Text>{item.year}</Text>
+          <View style={[styles.info, {width: width - 150}]}>
+            <Text style={styles.text}>{movie.title}</Text>
+            <Text>{movie.year}</Text>
+          </View>
         </View>
       </TouchableOpacity>
     )
@@ -25,17 +27,23 @@ export class MovieItem extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-    padding: 10
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // flex: 1,
+    padding: 10,
+    flexDirection: 'row',
+    backgroundColor: 'rgba(12,42,42,0.6)'
   },
   image: {
-    width: 100,
-    height: 150
+    width: 130,
+    height: 200
+  },
+  info: {
+    marginLeft: 10
   },
   text: {
-    fontSize: 18
+    fontSize: 20,
+    color: '#234324'
   }
 })
 export default MovieItem
